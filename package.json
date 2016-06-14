@@ -1,0 +1,36 @@
+{
+  "name": "reduxuless",
+  "version": "0.1.0",
+  "description": "Reduxuless, CSS modules, React, Redux w/o same",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/taogoat/reduxuless"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "reduxuless",
+    "webpack"
+  ],
+  "author": "taogoat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taogoat/reduxuless/issues"
+  },
+  "homepage": "https://github.com/taogoat/reduxuless",
+  "scripts": {
+    "test": "",
+    "start": "nodemon src/core/server"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "body-parser": "^1.15.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0"
+  },
+  "devDependencies": {
+    "chalk": "^1.1.3"
+  }
+}
