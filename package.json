@@ -21,16 +21,14 @@
   "homepage": "https://github.com/taogoat/reduxuless",
   "scripts": {
     "test": "",
-    "start": "nodemon src/core/server"
+    "start": "nodemon --watch src/core/server src/core/server"
   },
   "dependencies": {
-    "express": "^4.13.4",
+    "chalk": "^1.1.3",
     "body-parser": "^1.15.1",
+    "express": "^4.13.4",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0"
-  },
-  "devDependencies": {
-    "chalk": "^1.1.3"
   }
 }
