@@ -4,10 +4,11 @@ var express = require('express')
 
 // Webpack Requirements
 var webpack = require('webpack')
-var config = require('./webpack.config')
+var webpackConfig = require('./webpack.config')
 var webpackDevMiddleware = require('webpack-dev-middleware')
 var webpackHotMiddleware = require('webpack-hot-middleware')
 
+var config = require('./config')
 
 var app = express()
 
@@ -16,8 +17,8 @@ var port = isProduction ? process.env.PORT : 3000
 
 if(!isProduction){
   console.log(chalk.green('Serving from /public on DEV ENV'))
-  var compiler = webpack(config)
-  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
+  var compiler = webpack(webpackConfig)
+  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }))
   app.use(webpackHotMiddleware(compiler))
 }
 
@@ -26,7 +27,7 @@ app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(express.static('public'))
 
 // Render Initial HTML
-var renderFullPage = function(initialState) {
+var renderFullPage = function(name, initialState) {
   return `
     <!doctype html>
     <html>
@@ -37,7 +38,7 @@ var renderFullPage = function(initialState) {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
         />
-        <title>Taogoat Cudnuggets</title>
+        <title>${name}</title>
       </head>
       <body>
         <div id="root"></div>
@@ -52,7 +53,7 @@ var renderFullPage = function(initialState) {
 
 app.get('/', function(req, res) {
     var initialState = { state: 'intialized!' }
-    res.status(200).send(renderFullPage(initialState))
+    res.status(200).send(renderFullPage(config.name, initialState))
 })
 
 app.listen(port, function () {
