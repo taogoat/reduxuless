@@ -1,7 +1,9 @@
 'use strict'
+var styles = require('./styles')
 
 module.exports = {
-  id: id 	// access DOM element by id
+  id: id, 	// access DOM element by id
+  styles: styles
 }
 
 // mini API for DOM elements

@@ -8,7 +8,7 @@ module.exports = {
   },
   styleMain: {
     top:'11%',
-    height: '80%',
+    height: '82%',
     backgroundColor: 'green'
   },
   sideContent: {
