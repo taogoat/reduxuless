@@ -1,4 +1,5 @@
 'use strict'
-var drawLayout = require('./layout').drawLayout
+var Layout = require('./layout')
 
-drawLayout()
+Layout.setAppContainer()
+Layout.drawLayout()
