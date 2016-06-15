@@ -1,4 +1,5 @@
-var webpack = require('webpack');
+var webpack = require('webpack')
+var jsonLoader = require('json-loader')
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -14,11 +15,18 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.json'],
   },
-
+  module: {
+    loader: {
+      test: /\.json?$/,
+      loader: jsonLoader
+    }
+  },
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         CLIENT: JSON.stringify(true)

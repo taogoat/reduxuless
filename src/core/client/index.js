@@ -1,3 +1,4 @@
 'use strict'
+var drawLayout = require('./layout').drawLayout
 
-document.getElementById('root').innerHTML = 'Split up client and server side rendering!'
+drawLayout()
