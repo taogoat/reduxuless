@@ -10,18 +10,17 @@ module.exports = {
     tgt.id('root').html(Html.mainHtml).styl(tgt.styles.rootContainer)
 
     tgt.id('main_main').html(Html.contentHtml)
-    tgt.id('main_head').styl(tgt.styles.layoutContainer, my.styleHeadFoot,{height:'8%'})
-    tgt.id('main_main').styl(tgt.styles.layoutContainer, my.styleMain)
-    tgt.id('main_foot').styl(tgt.styles.layoutContainer, my.styleHeadFoot,{height:'4%', top:'92%'})
+    tgt.id('head_main').styl(tgt.styles.layout, my.styleHeadFoot,{height:'8%'})
+    tgt.id('main_main').styl(tgt.styles.layout, my.styleMain)
+    tgt.id('foot_main').styl(tgt.styles.layout, my.styleHeadFoot,{height:'4%', top:'92%'})
 
-    tgt.id('cont_leftside').styl(tgt.styles.layoutContainer, my.sideContent,{width:'25%'})
-    tgt.id('cont_leftinside').styl(tgt.styles.layoutContainer, my.insideContent,{left: '26%', width: '10%'})
-    tgt.id('cont_content').styl(tgt.styles.layoutContainer, my.contentContainer, {left: '37%', width: '48.5%'})
-    tgt.id('cont_rightside').styl(tgt.styles.layoutContainer, my.sideContent,{right: '0%', width: '10%'})
+    tgt.id(  'leftside_cont').styl(tgt.styles.layout, my.sideContent,{width:'25%'})
+    tgt.id('leftinside_cont').styl(tgt.styles.layout, my.insideContent,{left: '26%', width: '10%'})
+    tgt.id(   'content_cont').styl(tgt.styles.layout, my.contentContainer, {left: '37%', width: '48.5%'})
+    tgt.id( 'rightside_cont').styl(tgt.styles.layout, my.sideContent,{right: '0%', width: '10%'})
 
     this.breakState = breakpoints.check(window.innerWidth)
     breakpoints.resetView(this.breakState)
-    console.log('breakState is '+ this.breakState)
     window.addEventListener('resize', function(event){
       var w = window.innerWidth
       var b = breakpoints.check(w)
@@ -29,7 +28,7 @@ module.exports = {
         this.breakState = b
         breakpoints.resetView(b)
         var message = 'View is '+this.breakState+'<small> called from layout/index line 31</small>'
-      tgt.id('cont_content').html(message)
+      tgt.id('content_cont').html(message)
       }
     });
   },
@@ -44,4 +43,3 @@ module.exports = {
     document.body.style.margin = '0'
   }
 }
-

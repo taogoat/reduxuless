@@ -19,28 +19,28 @@ module.exports = {
   resetView: function(breakpoint) {
       switch (breakpoint) {
         case 'phone':
-  tgt.id('cont_leftside').styl({display: 'none'})
-  tgt.id('cont_leftinside').styl({display: 'none'})
-  tgt.id('cont_rightside').styl({display: 'none'})
-  tgt.id('cont_content').styl({left: '0%', width: '100%'})
+  tgt.id('leftside_cont').styl({display: 'none'})
+  tgt.id('leftinside_cont').styl({display: 'none'})
+  tgt.id('rightside_cont').styl({display: 'none'})
+  tgt.id('content_cont').styl({left: '0%', width: '100%'})
           break
         case 'phablet':
-  tgt.id('cont_leftside').styl({display: 'inline', width: '20%'})
-  tgt.id('cont_leftinside').styl({display: 'none'})
-  tgt.id('cont_rightside').styl({display: 'none'})
-  tgt.id('cont_content').styl({left: '22.5%', width: '75%'})
+  tgt.id('leftside_cont').styl({display: 'inline', width: '20%'})
+  tgt.id('leftinside_cont').styl({display: 'none'})
+  tgt.id('rightside_cont').styl({display: 'none'})
+  tgt.id('content_cont').styl({left: '22.5%', width: '75%'})
           break
         case 'tablet':
-  tgt.id('cont_leftside').styl({display: 'inline', width: '25%'})
-  tgt.id('cont_leftinside').styl({display: 'none'})
-  tgt.id('cont_rightside').styl({display: 'inline'})
-  tgt.id('cont_content').styl({left: '27%', width: '59%'})
+  tgt.id('leftside_cont').styl({display: 'inline', width: '25%'})
+  tgt.id('leftinside_cont').styl({display: 'none'})
+  tgt.id('rightside_cont').styl({display: 'inline'})
+  tgt.id('content_cont').styl({left: '27%', width: '59%'})
           break
         case 'desktop':
-  tgt.id('cont_leftside').styl({display: 'inline', width: '25%'})
-  tgt.id('cont_leftinside').styl({display: 'inline'})
-  tgt.id('cont_rightside').styl({display: 'inline'})
-  tgt.id('cont_content').styl({left: '35.5%', width: '51.5%'})
+  tgt.id('leftside_cont').styl({display: 'inline', width: '25%'})
+  tgt.id('leftinside_cont').styl({display: 'inline'})
+  tgt.id('rightside_cont').styl({display: 'inline'})
+  tgt.id('content_cont').styl({left: '35.5%', width: '51.5%'})
           break
       }
     }

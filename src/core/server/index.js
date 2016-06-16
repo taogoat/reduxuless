@@ -1,5 +1,6 @@
 var chalk = require('chalk')
 var bodyParser = require('body-parser')
+var cookieParser = require('cookie-parser')
 var express = require('express')
 
 // Webpack Requirements
@@ -20,11 +21,19 @@ if(!isProduction){
   var compiler = webpack(webpackConfig)
   app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }))
   app.use(webpackHotMiddleware(compiler))
+
 }
 
+app.use(cookieParser())
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(express.static('public'))
+
+app.post('/', function(request, response){
+  initialState = request.body
+  response.cookie('state' , request.body)
+  response.send({"result": "thanks"})
+})  
 
 // Render Initial HTML
 var renderFullPage = function(name, initialState) {
@@ -52,10 +61,14 @@ var renderFullPage = function(name, initialState) {
 };
 
 app.get('/', function(req, res) {
-    var initialState = { state: 'intialized!' }
-    res.status(200).send(renderFullPage(config.name, initialState))
+  var initialState = {}
+  if(req.cookies.state) {
+    initialState = req.cookies.state
+  }
+  else{initialState = { nav: 'Home' }}
+  res.status(200).send(renderFullPage(config.name, initialState))
 })
 
 app.listen(port, function () {
   console.log('Server running on port ' + port)
-});
+})
