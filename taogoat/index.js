@@ -1,12 +1,15 @@
 'use strict'
+var Colors = require('./colors')
 var Store = require('./store')
 var styles = require('./styles')
 
 module.exports = {
-  clas: clas,      // access DOM by class
-  id: id, 	       // access DOM element by id
+  clas: clas,       // access DOM by class
+  getColor: Colors.getColor,   // color manager
+  getColors: Colors.getColors,   // color manager
+  id: id, 	        // access DOM element by id
   Store: Store,
-  styles: styles   // common styles
+  styles: styles    // common styles
 }
 function clas(clas){
   var selves = document.getElementsByClassName(clas)

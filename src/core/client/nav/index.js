@@ -1,5 +1,6 @@
 'use strict;'
 
+var config = require('./nav.config')
 var tgt = require('../../../../taogoat')
 var Html = require('./nav.html.js')
 var my = require('./nav.styles.js')
@@ -16,6 +17,7 @@ module.exports={
     tgt.clas('btn_nav').styl(my.btn_nav, utils.padButtons())
     addListeners(navState, dispatch)
     toggleButtons(navState)
+    resolve(navState)
   }
 }
 
@@ -35,7 +37,7 @@ function addListeners(navState, dispatch) {
 
 function listenerResponse(key, dispatch) {
   var message = 'Click event from '+key
-  tgt.id('foot_main').html(message)
+  tgt.id('leftside_cont').html(message)
   dispatch({'nav':key}, resolve)
 }
 
@@ -43,6 +45,13 @@ function resolve(navState) {
   var message = 'Callback event to resolve dispatch '+JSON.stringify(navState['nav'])
   tgt.id('rightside_cont').html(message)
   console.log(message)
+
+  if (navState['nav']=='Home'){
+  console.log('resolving Home')
+  console.log('config[targ] is '+config.target)
+  console.log('resolving Home')
+    config['Home'](config.target)
+  }
   toggleButtons(navState)
 }
 

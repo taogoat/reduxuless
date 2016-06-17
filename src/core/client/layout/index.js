@@ -16,7 +16,7 @@ module.exports = {
 
     tgt.id(  'leftside_cont').styl(tgt.styles.layout, my.sideContent,{width:'25%'})
     tgt.id('leftinside_cont').styl(tgt.styles.layout, my.insideContent,{left: '26%', width: '10%'})
-    tgt.id(   'content_cont').styl(tgt.styles.layout, my.contentContainer, {left: '37%', width: '48.5%'})
+    tgt.id(   'content_cont').styl(tgt.styles.layout, my.contentContainer, {left: '37%', width: '48.5%', overflow:'scroll'})
     tgt.id( 'rightside_cont').styl(tgt.styles.layout, my.sideContent,{right: '0%', width: '10%'})
 
     this.breakState = breakpoints.check(window.innerWidth)
@@ -28,7 +28,7 @@ module.exports = {
         this.breakState = b
         breakpoints.resetView(b)
         var message = 'View is '+this.breakState+'<small> called from layout/index line 31</small>'
-      tgt.id('content_cont').html(message)
+      tgt.id('foot_main').html(message)
       }
     });
   },
