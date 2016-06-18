@@ -40,7 +40,7 @@ module.exports = {
   tgt.id('leftside_cont').styl({display: 'inline', width: '25%'})
   tgt.id('leftinside_cont').styl({display: 'inline'})
   tgt.id('rightside_cont').styl({display: 'inline'})
-  tgt.id('content_cont').styl({left: '35.5%', width: '51.5%'})
+  tgt.id('content_cont').styl({left: '35.5%', width: '51.75%'})
           break
       }
     }

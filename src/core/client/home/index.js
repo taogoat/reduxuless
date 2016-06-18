@@ -9,8 +9,11 @@ module.exports = {
 }
 
 function render(target) {
+	// 'target' passed in as prop from nav module
   tgt.id(target).html(Html.main)
-  tgt.id('banner').styl({textAlign:'center'})
-  tgt.clas('listItem').styl({padding:'5px', textDecoration: 'none', color:'yellow'})
-  tgt.clas('subItem').styl({padding:'5px',color:'white'})
+  	// 'banner', 'listItem', 'subItem'
+  	//		are defined locally in home.html.js
+  tgt.id('banner').styl({textAlign:'center', padding:'15px'})
+  tgt.clas('listItem').styl({padding:'5px'})
+  tgt.clas('subItem').styl({padding:'5px',opacity:'0.8', textAlign:'justify'})
 }

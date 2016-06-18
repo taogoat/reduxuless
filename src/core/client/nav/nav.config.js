@@ -2,5 +2,6 @@
 
 module.exports = {
 	target: 'content_cont',
-	'Home': require('../home').render
+	'Home': require('../home').render,
+	'Counter': require('../../../modules/Counter').render
 }

@@ -52,6 +52,13 @@ function resolve(navState) {
   console.log('resolving Home')
     config['Home'](config.target)
   }
+
+  if (navState['nav']=='Counter'){
+  console.log('resolving Counter')
+  console.log('config[targ] is '+config.target)
+  console.log('resolving Counter')
+    config['Counter'](config.target)
+  }
   toggleButtons(navState)
 }
 
