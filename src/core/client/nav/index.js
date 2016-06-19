@@ -17,7 +17,7 @@ module.exports={
     tgt.clas('btn_nav').styl(my.btn_nav, utils.padButtons())
     addListeners(navState, dispatch)
     toggleButtons(navState)
-    resolve(navState)
+    resolve(navState, dispatch)
   }
 }
 
@@ -41,25 +41,19 @@ function listenerResponse(key, dispatch) {
   dispatch({'nav':key}, resolve)
 }
 
-function resolve(navState) {
-  var message = 'Callback event to resolve dispatch '+JSON.stringify(navState['nav'])
+function resolve(state, dispatch) {
+  var message = 'Callback event to resolve dispatch '+JSON.stringify(state['nav'])
   tgt.id('rightside_cont').html(message)
   console.log(message)
 
-  if (navState['nav']=='Home'){
-  console.log('resolving Home')
-  console.log('config[targ] is '+config.target)
-  console.log('resolving Home')
+  if (state['nav']=='Home'){
     config['Home'](config.target)
   }
 
-  if (navState['nav']=='Counter'){
-  console.log('resolving Counter')
-  console.log('config[targ] is '+config.target)
-  console.log('resolving Counter')
-    config['Counter'](config.target)
+  if (state['nav']=='Counter'){
+    config['Counter'](config.target, state, dispatch)
   }
-  toggleButtons(navState)
+  toggleButtons(state)
 }
 
 function toggleButtons(navState) {

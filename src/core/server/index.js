@@ -30,8 +30,9 @@ app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(express.static('public'))
 
 app.post('/', function(request, response){
-  initialState = request.body
   response.cookie('state' , request.body)
+  console.log('Inserting cookie ')
+  console.log('   ---> '+ JSON.stringify(request.body))
   response.send({"result": "thanks"})
 })  
 
@@ -63,9 +64,9 @@ var renderFullPage = function(name, initialState) {
 app.get('/', function(req, res) {
   var initialState = {}
   if(req.cookies.state) {
-    initialState = req.cookies.state
+    initialState = config.merge(req.cookies.state)
   }
-  else{initialState = { nav: 'Home' }}
+  else{initialState = config.collect()}
   res.status(200).send(renderFullPage(config.name, initialState))
 })
 

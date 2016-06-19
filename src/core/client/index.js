@@ -12,10 +12,13 @@ function dispatch(obj,callback){
  	var full = Store.dispatch(obj)
  	var state = JSON.parse(JSON.stringify(full))
   delete state.next
- 	postState(state)
- 	callback(obj)
+	postState(state)
+  resolve(state, callback)
 }
 
+
+// postState function for sending state to server
+//  to set cookies.  Only needed for dev hot reloading
 function postState(state){
 // Sending and receiving data in JSON format using POST mothod
 //
@@ -30,9 +33,17 @@ function postState(state){
     }
   }
   var data = JSON.stringify(state);
-  xhr.send(data);
+  xhr.send(data); 
+ }
+
+function resolve(obj, callback) {
+  callback(obj, dispatch)
+  console.log('Main dispatch resolve ')
+  console.log(' --->callback obj is '+JSON.stringify(obj) )
 }
 
 Layout.setAppContainer()
 Layout.drawLayout()
 Nav.drawNav(initialState, dispatch)
+// drawNav only needs to know about mod list
+// resolve() should be called here with the state

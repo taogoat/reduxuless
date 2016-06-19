@@ -13,18 +13,8 @@ module.exports = {
       <div id="decrement" style="display:inline; margin:10%;">-</div>
     </div>
     <br/>
-    <div style="text-align:center; padding:10px;">
-      Current Counter State
-    </div>
-    <div id="counter">
-      Counter
-    </div>
-    <br/>
-    <div style="text-align:center; padding:10px;">
-      Complete App State
-    </div>
-    <div id="appCounter">
-      Counter
+    <div id="counter" style="text-align:center; padding:10px;">
+      <h1>Counter</h1>
     </div>
   </div>
   <br/>

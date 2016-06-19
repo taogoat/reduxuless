@@ -11,6 +11,7 @@ module.exports = {
   Store: Store,
   styles: styles    // common styles
 }
+
 function clas(clas){
   var selves = document.getElementsByClassName(clas)
 // style seems to be some sort of reserved word

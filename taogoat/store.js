@@ -18,7 +18,8 @@ module.exports = {
 var storeState = {}
 
 function resolve(context){
-  var newState = {}
+  var newState = JSON.parse(JSON.stringify(storeState))
+  delete newState.next
   for (var key in context) {
     if (Object.prototype.hasOwnProperty.call(context, key)) {
 	  newState[key] = context[key]
