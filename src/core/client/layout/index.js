@@ -6,7 +6,7 @@ var tgt = require('../../../../taogoat')
 var breakpoints = require('./layout.breakpoints.js')
 
 module.exports = {
-  drawLayout : function() {
+  render : function() {
     tgt.id('root').html(Html.mainHtml).styl(tgt.styles.rootContainer)
 
     tgt.id('main_main').html(Html.contentHtml)

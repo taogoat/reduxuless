@@ -6,8 +6,9 @@ var tgt = require('../../../../taogoat')
 var maxLabelsLength = 23
 
 module.exports = {
+  drawButtons: drawButtons,
   padButtons: padButtons,
-  drawButtons: drawButtons
+  toggleButtons: toggleButtons
 }
 
 function LabelsLength() {
@@ -45,3 +46,18 @@ function drawButtons(){
     return html
   }
 }
+
+function toggleButtons(navState) {
+  for(var i in modules){
+    var key = modules[i]
+    if(key == navState['nav']){
+      tgt.id(key+'_btn_nav').styl({display:'none'})
+      tgt.id(key+'_disabled_btn_nav').styl({display:'inline'})
+    }
+    else{
+      tgt.id(key+'_btn_nav').styl({display:'inline'})
+      tgt.id(key+'_disabled_btn_nav').styl({display:'none'})
+    }
+  }
+}
+

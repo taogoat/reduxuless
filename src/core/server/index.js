@@ -33,7 +33,7 @@ app.post('/', function(request, response){
   response.cookie('state' , request.body)
   console.log('Inserting cookie ')
   console.log('   ---> '+ JSON.stringify(request.body))
-  response.send({"result": "thanks"})
+  response.send({devs:'posty cookies'})
 })  
 
 // Render Initial HTML

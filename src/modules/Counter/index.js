@@ -31,7 +31,7 @@ function render(target, state, dispatch) {
 }
 
 function resolve(state) {
-	console.log('into count resolve')
+	console.log('Resolving count')
   var c = '<h1>'+state['count']+'</h1>'
   tgt.id('counter').html(c)
 

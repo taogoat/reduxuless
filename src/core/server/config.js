@@ -3,13 +3,17 @@
 module.exports = {
   name: 'Taogoat Cud Nuggets',
   modules: ['Home', 'Counter', 'Settings'],
+  content_target: 'content_cont',
+  nav_target: 'head_main',
   collect: collect,
   merge: merge,
   breakpoints: {
   	phablet: 420,
   	tablet: 768,
   	desktop: 1024,
-  }
+  },
+  'Home': require('../client/home').render,
+  'Counter': require('../../modules/Counter').render
 }
 
 // collects initial state of available modules

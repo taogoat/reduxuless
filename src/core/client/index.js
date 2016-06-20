@@ -3,8 +3,11 @@ var Layout = require('./layout')
 var Nav = require('./nav')
 var Store = require('../../../taogoat').Store
 
+var config = require('../server/config')
+var cont_targ = config.content_target
+var nav_targ = config.nav_target
+
 var initialState = window.__INITIAL_STATE__
-initialState.next = null
 
 Store.init(initialState)
 
@@ -43,7 +46,6 @@ function resolve(obj, callback) {
 }
 
 Layout.setAppContainer()
-Layout.drawLayout()
-Nav.drawNav(initialState, dispatch)
-// drawNav only needs to know about mod list
-// resolve() should be called here with the state
+Layout.render()
+console.log(' firstDraw init is '+ JSON.stringify(initialState) )
+Nav.render(nav_targ, initialState, dispatch)
