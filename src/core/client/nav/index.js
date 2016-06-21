@@ -1,7 +1,9 @@
 'use strict;'
+var tgt = require('../../../../taogoat')
 
 var config = require('../../server/config')
-var tgt = require('../../../../taogoat')
+var theme = require('../theme')
+
 var Html = require('./nav.html.js')
 var my = require('./nav.styles.js')
 var utils = require('./nav.utils')
@@ -19,6 +21,7 @@ function render(nav_targ, navState, dispatch){
     tgt.clas('btn_nav').styl(my.btn_nav, utils.padButtons())
     addListeners(dispatch)
     resolve(navState, dispatch)
+    theme.resolve(navState['theme'])
 }
 
 function addListeners(dispatch) {
@@ -55,5 +58,10 @@ function resolve(state, dispatch) {
   if (state['nav']=='Counter'){
     config['Counter'](config.content_target, state, dispatch)
   }
+
+  if (state['nav']=='Theme'){
+    config['Theme'](config.content_target, state, dispatch)
+  }  
+
   utils.toggleButtons(state)
 }

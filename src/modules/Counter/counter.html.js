@@ -9,8 +9,8 @@ module.exports = {
   <br/>
   <div id="content">
     <div style="text-align:center; padding:10%;">
-      <div id="increment" style="display:inline; margin:10%;">+</div>
-      <div id="decrement" style="display:inline; margin:10%;">-</div>
+      <div id="increment" class="tgt-side" style="display:inline; margin:10%;">+</div>
+      <div id="decrement" class="tgt-side" style="display:inline; margin:10%;">-</div>
     </div>
     <br/>
     <div id="counter" style="text-align:center; padding:10px;">

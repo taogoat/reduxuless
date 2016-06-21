@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	day: {
+	light: {
 		background: '#444484',
 		content: '#C4C4FF',
 		insideBar: '#6363D0',
@@ -9,7 +9,7 @@ module.exports = {
 		innerText: 'black'
 	},
 
-	night: {
+	dark: {
 		background: '#AAAACC',
 		content: '#282895',
 		insideBar: '#6363D0',

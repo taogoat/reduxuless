@@ -2,7 +2,7 @@
 
 module.exports = {
   name: 'Taogoat Cud Nuggets',
-  modules: ['Home', 'Counter', 'Settings'],
+  modules: ['Home', 'Counter', 'Theme'],
   content_target: 'content_cont',
   nav_target: 'head_main',
   collect: collect,
@@ -13,6 +13,7 @@ module.exports = {
   	desktop: 1024,
   },
   'Home': require('../client/home').render,
+  'Theme': require('../client/theme').render,
   'Counter': require('../../modules/Counter').render
 }
 
@@ -22,8 +23,8 @@ function collect() {
 	return {
 		'nav': 'Home',
 		'theme': {
-			'color': 'Blue',
-			'tone': 'Dark'
+			'color': 'Orange',
+			'tone': 'Light'
 		},
 		'count': 0
 	}

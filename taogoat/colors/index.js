@@ -12,32 +12,35 @@ Colors.getColors = function () {
 	return colors;
 }
 
-Colors.getColor = function ( color, shade){
+Colors.getColor = function (theme){
 
-	console.log('shade is '+JSON.stringify(shade))
+	var color = theme['color']
+	var tone = theme['tone']
+
+	console.log('tone is '+JSON.stringify(tone))
 	console.log('color is '+JSON.stringify(color))
-	if ( shade == 'Day'){
+	if ( tone == 'Light'){
 		switch(color){
 			case 'Blue':
-				return Blue.day
+				return Blue.light
 			case 'Green':
-				return Green.day
+				return Green.light
 			case 'Grey':
-				return Grey.day 
+				return Grey.light 
 			case 'Orange':
-				return Orange.day				
+				return Orange.light				
 		}
 	}
 	else{
 		switch(color){
 			case 'Blue':
-				return Blue.night
+				return Blue.dark
 			case 'Green':
-				return Green.night
+				return Green.dark
 			case 'Grey':
-				return Grey.night 
+				return Grey.dark 
 			case 'Orange':
-				return Orange.night				
+				return Orange.dark				
 		}
 	}
 }
